@@ -1,10 +1,10 @@
 $(document).ready(function(e) {
 	  $("#legendToggle").click(function(){
 		if ($("#legendDiv").css('display')=='none'){
-		  $("#legTogText").html('MAP LEGEND ▲');
+		  $("#legTogText").html('LIST OF TOWNS ▲');
 		}
 		else{
-		  $("#legTogText").html('MAP LEGEND ▼');
+		  $("#legTogText").html('LIST OF TOWNS ▼');
 		}
 		$("#legendDiv").slideToggle();
 	  });
@@ -69,7 +69,7 @@ function generateGraphics(index){
 		if (i < 2){
 			layer.hide();
 
-			$("#story"+index).append("<div id='story"+index+"group"+i+"' class='group'></div>");
+			$("#listDiv").append("<div id='story"+index+"group"+i+"' class='group'></div>");
 
 			var sp = new esri.layers.GraphicsLayer();
 			map.addLayer(sp);
@@ -129,7 +129,7 @@ function generateGraphics(index){
 					var image = graphic.attributes.thumb || checkImg(graphic.attributes);
 					var ifImg = true;
 
-					if (image != null && image != "http://www.landscope.org/_res/img/contentTypeThumbnails/articleSmall.png"){
+					if (false && image != null && image != "http://www.landscope.org/_res/img/contentTypeThumbnails/articleSmall.png"){
 						$("#story"+index+"group"+i+"point"+j).append("<div id='story"+index+"group"+i+"imgCon"+j+"' class='imgCon'><img id='story"+index+"group"+i+"img"+j+"' class='spImg' src='"+image+"' alt=''></div>");
 					}
 					else{
@@ -145,7 +145,7 @@ function generateGraphics(index){
 
 						var textWidth;
 
-						if (ifImg == true){
+						if (true && ifImg == true){
 							textWidth = (($(".storyPoint").width()) - 115);
 							$("#story"+index+"group"+i+"textCon"+j).css('left',115);
 						}
@@ -153,7 +153,7 @@ function generateGraphics(index){
 							textWidth = (($(".storyPoint").width()) - 35);
 							$("#story"+index+"group"+i+"textCon"+j).css('left',35);
 						}
-						$("#story"+index+"group"+i+"textCon"+j).width(textWidth);
+						// $("#story"+index+"group"+i+"textCon"+j).width(textWidth);
 					}
 
 					attr.displayTitle = title;

@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/js/dojo/dijit/themes/tundra/tundra.css">
     <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/js/esri/css/esri.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="css/popup.css"/>
 
      <script type="text/javascript">
       var djConfig = {
@@ -27,7 +28,7 @@
 		  configOptions = {
 			//The ID for the map from ArcGIS.com
 			webmaps : [{
-				"id": "0cfd1e4d8cfb4f108b02e58998f62dfa"
+				"id": "be7f34cb2f6f47799d5fec3f061ac6b9"
 			}],
 			//Enter a title, if no title is specified, the webmap's title is used.
 			title : "",
@@ -84,10 +85,11 @@
           <!-- Map Section -->
           <div id="map" dojotype="dijit.layout.ContentPane" region="center">
           	<div id="legendCon">
-	         	<div style="width:230px" id="legendDiv">
-                <img style="width:220px" src="http://storymaps.esri.com/ac/images/bestsmalllegend.jpg" alt="">
-            </div>
-              	<div id="legendToggle"><p id="legTogText">MAP LEGEND ▼</p></div>
+              <div id="legendToggle"><p id="legTogText">LIST OF TOWNS ▼</p></div>
+  	         	<div id="legendDiv">
+                  <img style="width:180px; margin:5px" src="images/legend.png" alt="">
+                  <div id="listDiv"></div>
+              </div>
             </div>
           	<div id="mapBlind"></div>
             <div id="hoverInfo"></div>

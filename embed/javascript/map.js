@@ -6,7 +6,7 @@ dojo.require("esri.IdentityManager");
 dojo.require("dijit.dijit"); // optimize: load dijit layer
 dojo.require("dijit.layout.BorderContainer");
 dojo.require("dijit.layout.ContentPane");
-dojo.require("esri.dijit.Popup");
+dojo.require("esri.dijit.PopupMobile");
 
 var map, _maps = [], _popup = [], _mapInfo = [], urlObject, _csvLayers = [], _storyPoints = [], mapsLoaded = 0, mapsReady = false;
 
@@ -69,8 +69,8 @@ function createMaps(){
 	  
 	  $("#tab"+i).data("count", i);
 	  
-	  var popup = new esri.dijit.Popup({
-		highlight:true
+	  var popup = new esri.dijit.PopupMobile({
+		highlight:false
       }, dojo.create("div"));
 	  
 	  _popup[i] = popup;
@@ -78,6 +78,7 @@ function createMaps(){
       var mapDeferred = esri.arcgis.utils.createMap(webmap.id, "mapDiv"+i, {
         mapOptions: {
           slider: true,
+          sliderPosition:"top-right",
           nav: false,
           wrapAround180:true,
 		  infoWindow:popup
@@ -125,12 +126,12 @@ function createMaps(){
 
     function initUI(layers, i) {
       //add chrome theme for popup
-      dojo.addClass(map.infoWindow.domNode, "chrome");
-      //add the scalebar 
-      var scalebar = new esri.dijit.Scalebar({
-        map: map,
-        scalebarUnit:"english" //metric or english
-      });
+      // dojo.addClass(map.infoWindow.domNode, "chrome");
+      // //add the scalebar 
+      // var scalebar = new esri.dijit.Scalebar({
+      //   map: map,
+      //   scalebarUnit:"english" //metric or english
+      // });
 
       // var layerInfo = buildLayersList(layers);      
 
