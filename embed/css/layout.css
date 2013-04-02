@@ -265,6 +265,22 @@
 	  font-family:Arial, Helvetica, sans-serif;
 	  }
 
+	  #click2013{
+	  	position: absolute;
+		height: 40px;
+		width: 87px;
+		left: 0;
+		cursor: pointer;
+	  }
+
+	  #click2012{
+	  	position: absolute;
+		height: 40px;
+		right: 0;
+		width: 130px;
+		cursor: pointer;
+	  }
+
 	  #listDiv{
 	  	position: relative;
 	  	height:200px;
