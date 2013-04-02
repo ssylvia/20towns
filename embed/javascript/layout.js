@@ -197,17 +197,17 @@ function startUpListeners(index){
 	});
 	dojo.connect(_storyPoints[index], "onClick", function(event) {
         _popup[index].hide();
-        var scrollTop = ($("#storyPoints").scrollTop());
+        var scrollTop = ($("#listDiv").scrollTop());
         $("#hoverInfo").hide();
         $(".storyPoint").removeClass("selection");
         $(".storyPoint").each(function(){
             if ($(this).data("attributes") === event.graphic.attributes){
                 $(this).addClass("selection");
                 if($(this).position().top < 0){
-                    $("#storyPoints").scrollTop(scrollTop + $(this).position().top);
+                	$("#listDiv").scrollTop($("#listDiv").scrollTop()+$(this).position().top);
                 }
-                else if($(this).position().top +$(this).height() > $("#storyPoints").height()){
-                    $("#storyPoints").scrollTop($("#storyPoints").scrollTop() + $(this).position().top - $("#storyPoints").height() + $(this).height());
+                else {
+                	$("#listDiv").scrollTop($("#listDiv").scrollTop()+$(this).position().top + $(this).outerHeight() - $("#listDiv").outerHeight());
                 }
             }
         });
@@ -247,7 +247,7 @@ function startUpListeners(index){
 		});
         $("#hoverInfo").hide();
     });
-	$("#storyPoints").mouseout(function(e) {
+	$("#listDiv").mouseout(function(e) {
         $(".storyPoint").removeClass('active');
         $("#hoverInfo").hide();
         dojo.forEach(_storyPoints,function (lyr,idx){
@@ -357,4 +357,13 @@ function hoverInfoPos(x,y){
 		$("#hoverInfo").css("top",y-15+($("#hoverInfo").height()));
 	}
 	$("#hoverInfo").show();
+}
+
+function scrollToGroup(year){
+	if(year === 2012){
+		$("#listDiv").scrollTop($("#listDiv").scrollTop()+$(".storyPoint").eq(20).position().top);
+	}
+	else{		
+		$("#listDiv").scrollTop(0);
+	}
 }
