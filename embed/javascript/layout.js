@@ -98,10 +98,12 @@ function generateGraphics(index){
 
 					var group = "red";
 					var fileChange = "";
+					var iconIndex = j;
 					if(graphic.attributes.color){
 						if (graphic.attributes.color.toUpperCase() == "B"){
 							group = 'blue';
 							fileChange = 'b';
+							iconIndex = j - 20;
 						}
 						else{
 							group = 'red';
@@ -111,14 +113,14 @@ function generateGraphics(index){
 
 					var pt = graphic.geometry;
 					var attr = graphic.attributes;
-					var sym = new esri.symbol.PictureMarkerSymbol("images/icons/"+group+"/NumberIcon"+fileChange+(j+1)+".png", 22, 28).setOffset(3,8);
+					var sym = new esri.symbol.PictureMarkerSymbol("images/icons/"+group+"/NumberIcon"+fileChange+(iconIndex+1)+".png", 22, 28).setOffset(3,8);
 					var info = layer.infoTemplate;
 
 					if (graphic.attributes.order){
 						$("#story"+index+"group"+i+"point"+j).append("<div id='story"+index+"group"+i+"indexCon"+j+"' class='indexCon "+group+"'><div id='story"+index+"group"+i+"pointIndex"+j+"' class='pointIndex'>"+graphic.attributes.order+"</div></div>");
 					}
 					else{
-						$("#story"+index+"group"+i+"point"+j).append("<div id='story"+index+"group"+i+"indexCon"+j+"' class='indexCon "+group+"'><img id='story"+index+"group"+i+"pointIndex"+j+"' class='pointIndex' src='images/icons/"+group+"/NumberIcon"+fileChange+(j+1)+".png'></div>");
+						$("#story"+index+"group"+i+"point"+j).append("<div id='story"+index+"group"+i+"indexCon"+j+"' class='indexCon "+group+"'><img id='story"+index+"group"+i+"pointIndex"+j+"' class='pointIndex' src='images/icons/"+group+"/NumberIcon"+fileChange+(iconIndex+1)+".png'></div>");
 					}
 					/*
 					else{
