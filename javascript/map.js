@@ -48,6 +48,9 @@ function initMap() {
       if(urlObject.query.bingMapsKey){
         configOptions.bingmapskey = urlObject.query.bingMapsKey;      
       }
+      if (urlObject.query.embed || urlObject.query.embed === "") {
+        $("#header").hide();
+      }
 	  
       
      if (configOptions.webmaps.length === 1){
